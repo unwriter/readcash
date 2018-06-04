@@ -50,7 +50,10 @@
         {{#each items}}
         <div class='wallet-item' data-addr="{{addr}}" href="#">
           <a class='row wallet-link' href='#'>
-            <div class='col-5 text-left'>{{addr}}</div>
+            <div class='col-5 text-left'>
+              <img src="https://robohash.org/{{addr}}.png?set=set4&size=60x60" class='avatar'>
+              {{addr}}
+            </div>
             <div class='col-4 text-right {{type}}'>{{val}} bits {{delta}}</div>
             <div class='col-3 text-right'>{{converted}} {{converted_delta}}</div>
           </a>
@@ -63,13 +66,23 @@
   </script>
   <script id='fund-template' type="text/x-handlebars-template">
     <div class='info-content'>
-      <div class='permalink'><i class='fas fa-link'></i>&nbsp;Add Permalink <input type='url' value="https://read.cash/add#{{addr}}"></div>
+      <div class='permalink'><i class='fas fa-link'></i>&nbsp;Permalink for auto-add <input type='url' value="https://read.cash/add#{{addr}}"></div>
+      <div class='chainfeed'>
+        <a href='https://chainfeed.org/@{{addr}}' target="_blank">
+          <i class='fas fa-external-link-alt'></i>&nbsp;View OP_RETURNs on Chainfeed
+        </a>
+      </div>
       <div>
-        <div>cash address: <span class='address'>{{cashAddr}}</span></div>
-        <div>legacy address: <span class='address'>{{legacyAddr}}</span></div>
-        <a href='https://explorer.bitcoin.com/bch/address/{{addr}}' target="_blank">view on bitcoin.com</a>
-        • 
-        <a href='https://bitcoincash.blockexplorer.com/address/bitcoincash:{{addr}}' target="_blank">view on blockexplorer.com</a>
+        <div>cash address:
+          <a class='addr' href='https://explorer.bitcoin.com/bch/address/{{addr}}' target="_blank">
+            {{cashAddr}}
+          </a>
+        </div>
+        <div>legacy address: 
+          <a class='addr' href='https://explorer.bitcoin.com/bch/address/{{addr}}' target="_blank">
+            {{legacyAddr}}
+          </a>
+        </div>
       </div>
       <div>{{{qr}}}</div>
       <div class="money-button-iframe-wrapper" style="width:168px;height:48px;overflow-y:visible;position:relative;z-index:1000;">
