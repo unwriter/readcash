@@ -85,7 +85,7 @@ a.navbar-brand {
   flex-grow: 1;
   margin-left: 5px;
 }
-.col-3, .col-6, .col-5, .col-2 {
+.col-3, .col-6, .col-5, .col-2, .col-4 {
   padding-left: 10px !important;
   padding-right: 10px !important;
 }
