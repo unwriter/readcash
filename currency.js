@@ -249,7 +249,6 @@ var currency_map = {
   ZW: 'ZWL'
 };
 var currency_display = function(locale) {
-  console.log("locale = ", locale)
   var curr = new Intl.NumberFormat(locale, { style: 'currency', currency: currency_map[locale] }).format(0)[0];
   return locale + " - " + currency_map[locale] + " (" + curr + ")"
 }
