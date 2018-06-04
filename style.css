@@ -6,6 +6,10 @@ body.dark {
   color: white;
   text-align: center;
 }
+.container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 header {
   padding: 50px;
   background: rgba(0,0,0,0.1);
@@ -62,6 +66,8 @@ a.navbar-brand {
 .wallet-item .info-content {
   padding: 20px;
   background: rgba(0,0,0,0.1);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 .wallet-item .info-content > * {
   margin: 20px;
@@ -112,6 +118,9 @@ a.navbar-brand {
 }
 h4 {
   padding: 10px;
+}
+#api {
+  padding-right: 10px;
 }
 .api {
   background: rgba(0,0,0,0.1);
