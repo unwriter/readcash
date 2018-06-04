@@ -51,7 +51,7 @@
         <div class='wallet-item' data-addr="{{addr}}" href="#">
           <a class='row wallet-link' href='#'>
             <div class='col-6 text-left'>{{addr}}</div>
-            <div class='col-3 text-right {{type}}'>{{val}} satoshis {{delta}}</div>
+            <div class='col-3 text-right {{type}}'>{{val}} bits {{delta}}</div>
             <div class='col-3 text-right'>{{converted}} {{converted_delta}}</div>
           </a>
           <div class='info'>
@@ -63,6 +63,7 @@
   </script>
   <script id='fund-template' type="text/x-handlebars-template">
     <div class='info-content'>
+      <div class='permalink'><i class='fas fa-link'></i>&nbsp;Add Permalink <input type='url' value="https://read.cash/add#{{addr}}"></div>
       <div>
         <div>cash address: <span class='address'>{{cashAddr}}</span></div>
         <div>legacy address: <span class='address'>{{legacyAddr}}</span></div>

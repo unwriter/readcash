@@ -69,6 +69,26 @@ a.navbar-brand {
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
+.wallet-item .info-content > .permalink {
+  align-items: center;
+  background: rgba(0,0,0,0.1);
+  padding: 10px;
+  margin: 0;
+  display: flex;
+}
+.permalink input {
+  padding: 5px;
+  outline: none;
+  border: none;
+  background: black;
+  color: white;
+  flex-grow: 1;
+  margin-left: 5px;
+}
+.col-3, .col-6 {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
 .wallet-item .info-content > * {
   margin: 20px;
 }
