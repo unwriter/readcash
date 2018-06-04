@@ -28,6 +28,9 @@ h1 {
   font-size: 20px;
   color: yellowgreen;
 }
+.avatar {
+  width: 30px;
+}
 .row {
   font-size: 12px;
   font-family: Menlo, monaco, Courier;
@@ -64,14 +67,13 @@ a.navbar-brand {
   text-align: left;
 }
 .wallet-item .info-content {
-  padding: 20px;
+  padding: 10px;
   background: rgba(0,0,0,0.1);
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
 .wallet-item .info-content > .permalink {
   align-items: center;
-  background: rgba(0,0,0,0.1);
   padding: 10px;
   margin: 0;
   display: flex;
@@ -80,7 +82,7 @@ a.navbar-brand {
   padding: 5px 10px;
   outline: none;
   border: none;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.2);
   color: white;
   flex-grow: 1;
   margin-left: 5px;
@@ -100,6 +102,10 @@ a.navbar-brand {
 }
 .wallets {
   padding: 10px 0;
+}
+a.addr {
+  color: white;
+  text-decoration: underline;
 }
 .address {
   color: goldenrod;
@@ -150,6 +156,17 @@ h4 {
   color: white;
   text-align: right;
   margin: 10px 0;
+}
+.chainfeed {
+  padding: 10px;
+  background: rgba(0,0,0,0.3);
+}
+.chainfeed a {
+  color: gold;
+}
+.chainfeed img{
+  height: 50px;
+  margin-right: 10px;
 }
 
 
