@@ -77,10 +77,10 @@ a.navbar-brand {
   display: flex;
 }
 .permalink input {
-  padding: 5px;
+  padding: 5px 10px;
   outline: none;
   border: none;
-  background: black;
+  background: rgba(0,0,0,0.4);
   color: white;
   flex-grow: 1;
   margin-left: 5px;
