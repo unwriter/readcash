@@ -18,10 +18,10 @@ We are on the verge of a cambrian explosion of "Bitcoin Apps". We already have s
 
 However it's becoming hard to keep track of all the wallets across different apps, and I imagine it will become a nightmare to keep track of what is going on with our own money across different applications like these. This is where **read.cash** comes in.
 
-1. By providing a dead simple interface for managing multiple wallets in a single place, read.cash lets you keep track of all your money across multiple apps.
-2. Also, by monitoring public addresses instead of having to import private keys, read.cash ensures that nothing bad will happen and you can feel free to add as many wallets as you want to get the most value, with zero risk.
+1. By providing a dead simple interface for managing multiple wallets in a single place, read.cash provides a single unified interface to keep track of all your money across multiple apps.
+2. By monitoring **public addresses instead of importing private keys**, read.cash ensures that nothing bad can ever happen, and you can feel free to add as many wallets as you want, with zero risk.
 
-## How
+## How It Works
 
 here are some highlights that make read.cash unique.
 
@@ -31,3 +31,26 @@ here are some highlights that make read.cash unique.
 4. **Monitor anything**: Since it works by adding public addresses, you can monitor any Bitcoin wallet--even those you don't own.
 5. **100% Serverless**: The entire app is purely frontend based HTML. There is no backend that stores your data. In fact, you can even run it on your own local machine if you want. The source code is 100% open source and designed to be as transparent as possible.
 6. **Charge your wallets effortlessly**: Read.cash implements a couple of powerful ways to charge your wallets, including QR Code and [Moneybutton](https://moneybutton.com), and more to be added. You no longer need to charge wallets from each app, you can do it all in one place.
+
+## How to Use
+
+### 1. Add Wallets
+
+Try the app at [https://read.cash](https://read.cash). Some of the things you can try are:
+
+1. Add your [memo.cash](https://memo.cash) wallet
+2. Add your [blockpress](https://www.blockpress.com) wallet
+3. Add your [yours.org](https://yours.org) wallet
+
+As you start adding wallets, you'll see that the header displays the total sum of all the coins in your wallets.
+
+### 2. Watch 
+
+If you have acccounts in any of the above services, try making a transaction (such as posting a memo), and come back to read.cash and refresh, you'll see that your balance has gone down. Likewise, you'll see a green arrow when there's an incoming transaction (like a tip).
+
+### 3. Charge your wallets
+
+There are two ways to charge your wallets.
+
+1. **QR Code**: If you already have a mobile phone wallet, you can scan the QR code to charge your wallets.
+2. **Moneybutton**: If you have a [yours.org](https://yours.org) or [moneybutton](https://moneybutton.com) account, you can charge your wallets with an instant click. It's almost magical.
