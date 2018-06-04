@@ -23,17 +23,6 @@ var add = function(addr) {
     })
   }
 }
-if (window.location.hash.length > 1) {
-  // parse command
-  var paramstring = window.location.hash.substring(1)
-  var params = paramstring.split("=")
-  if (params.length == 2) {
-    if (params[0].toLowerCase() === 'add') {
-      var address_to_add = params[1];
-      add(address_to_add)
-    }
-  }
-}
 document.addEventListener("DOMContentLoaded", function(e) {
   var tablesource   = document.getElementById("table-template").innerHTML;
   var tabletemplate = Handlebars.compile(tablesource);
@@ -125,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }, 0)
         var res = tabletemplate({
           converted: convert(total, r),
-          total: comma(total) + " satoshis (" + (total/100000000) + " BCH)",
+          total: comma(total) + " bits (" + (total/100000000) + " BCH)",
           items: results.map(function(result) {
             // find the row by address from the last snapshot
             // get the val and subtract from current
