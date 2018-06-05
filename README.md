@@ -12,6 +12,14 @@ Read.Cash lets you manage multiple wallets from various applications (such as me
 2. **Watch**: Watch the dashboard to get a birds eye view of all the wallets you've added in a single place.
 3. **Manage**: Effortlessly recharge all your application wallets using QR code and [Moneybutton](https://moneybutton.com)
 
+![sending](./sending.gif)
+
+In above example, I have 3 wallets added to my read.cash. One of them is a [yours.org](https://yours.org) wallet which is also connected to [Moneybutton](https://moneybutton.com).
+
+Then I recharge my [memo.cash](https://memo.cash) account with just a single click using Moneybutton! (I could also recharge using the QR code)
+
+Then I refresh the page, you can see that coins have moved instantly, resulting in the moneybutton account with decreased balance and memo.cash account with increased balance, and you can manage all of this in a single interface.
+
 ## Why
 
 We are on the verge of a cambrian explosion of "Bitcoin Apps". We already have several interesting apps running on top of Bitcoin Cash such as [memo.cash](https://memo.cash), [blockpress](https://www.blockpress.com), [yours.org](https://yours.org), [keyport](https://keyport.cash), etc. and we will see more and more apps launch in the near future. One notable thing about these apps is that **each app comes with its own embedded wallet**. This is great for user experience and also helps with reducing risk for users since each wallet is specific to its parent application.
