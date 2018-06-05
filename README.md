@@ -31,6 +31,7 @@ here are some highlights that make read.cash unique.
 4. **Monitor anything**: Since it works by adding public addresses, you can monitor any Bitcoin wallet--even those you don't own.
 5. **100% Serverless**: The entire app is purely frontend based HTML. There is no backend that stores your data. In fact, you can even run it on your own local machine if you want. The source code is 100% open source and designed to be as transparent as possible.
 6. **Charge your wallets effortlessly**: Read.cash implements a couple of powerful ways to charge your wallets, including QR Code and [Moneybutton](https://moneybutton.com), and more to be added. You no longer need to charge wallets from each app, you can do it all in one place.
+7, **Multi-currency**: You can use read.cash with whichever currency you choose.
 
 ## How to Use
 
