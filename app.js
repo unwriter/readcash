@@ -125,14 +125,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
               if (last.items[i].addr === result.addr) {
                 delta = result.val - last.items[i].val; 
                 if (delta > 0) {
-                  converted_delta = (delta / 100000000 * r).toFixed(6);
-                  delta = "▲ " + delta;
-                  converted_delta = "▲ $" + converted_delta;
+                  converted_delta = convert(delta, r);
+                  delta = "<i class='fas fa-arrow-up'></i> " + delta;
+                  converted_delta = "<i class='fas fa-arrow-up'></i> " + converted_delta;
                   type = 'up';
                 } else if (delta < 0) {
-                  converted_delta = (delta / 100000000 * r).toFixed(6);
-                  delta = "▼ " + (0-delta);
-                  converted_delta = "▼ $" + (0-converted_delta);
+                  converted_delta = convert(delta, r);
+                  delta = "<i class='fas fa-arrow-down'></i> " + delta;
+                  converted_delta = "<i class='fas fa-arrow-down'></i> " + converted_delta;
                   type = 'down';
                 }
                 break;
