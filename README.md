@@ -12,7 +12,7 @@ Read.Cash lets you manage multiple wallets from various applications (such as me
 2. **Watch**: Watch the dashboard to get a birds eye view of all the wallets you've added in a single place.
 3. **Manage**: Effortlessly recharge all your application wallets using QR code and [Moneybutton](https://moneybutton.com)
 
-![sending](./sending.gif)
+![sending](./demo.gif)
 
 In above example, I have 3 wallets added to my read.cash. One of them is a [yours.org](https://yours.org) wallet which is also connected to [Moneybutton](https://moneybutton.com).
 
