@@ -1,7 +1,11 @@
 body.dark {
   margin: 0;
   font-family: "Helvetica Neue", helvetica, arial;
-  background: #2a2a2a;
+  /*
+  background: #384059;
+  background: #26547C;
+  */
+  background: #1C3E5C;
   font-size: 12px;
   color: white;
   text-align: center;
@@ -50,6 +54,12 @@ a.navbar-brand {
 }
 .money-button-iframe-wrapper {
   margin-top: 10px;
+}
+.wallet-item {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  /*
+  border-top: 1px solid rgba(0,0,0,0.1);
+  */
 }
 .wallet-item a:hover {
   background: rgba(0,0,0,0.1);
@@ -111,8 +121,8 @@ a.addr {
   color: goldenrod;
 }
 #add {
-  background: brown;
-  border-color: brown;
+  background: crimson;
+  border-color: crimson;
 }
 .navbar a {
   color: white;
@@ -121,8 +131,8 @@ a.addr {
   border-radius: 0 !important;
 }
 .btn-danger {
-  background: brown;
-  border-color: brown;
+  background: crimson;
+  border-color: crimson;
   font-size: 12px;
 }
 .currency-selectors a:hover {
@@ -141,12 +151,14 @@ a.addr {
 .footer a {
   padding: 10px;
   color: white;
+  margin-bottom: 100px;
 }
 h4 {
   padding: 10px;
 }
 #api {
   padding-right: 10px;
+  color: rgba(255,255,255,0.8);
 }
 .api {
   background: rgba(0,0,0,0.1);
