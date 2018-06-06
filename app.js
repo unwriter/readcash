@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }, 0)
         var res = tabletemplate({
           converted: convert(total, r),
-          total: comma(total) + " bits (" + (total/100000000) + " BCH)",
+          total: comma(total) + " sats (" + (total/100000000) + " BCH)",
           items: results.map(function(result) {
             // find the row by address from the last snapshot
             // get the val and subtract from current
