@@ -142,9 +142,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
               addr: bchaddr.toCashAddress(result.addr).split(":")[1],
               val: comma(result.val),
               type: type,
-              delta: (delta === 0 ? "" : "[" + delta + "]" ),
+              delta: (delta === 0 ? "" : delta ),
               converted: convert(result.val, r),
-              converted_delta: (converted_delta === 0 ? "" : "[" + converted_delta + "]" ),
+              converted_delta: (converted_delta === 0 ? "" : converted_delta ),
             }
           })
         })
