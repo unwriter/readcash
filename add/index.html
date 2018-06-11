@@ -4,30 +4,39 @@
 <script src="../util.js"></script>
 <script>
 // ADD API
-var add = function(addr) {
-  var snapshot = localStorage.getItem("snapshot")
-  if (snapshot) {
-    var last = JSON.parse(snapshot) 
-    balance(addr).then(function(item) {
-      last.items.push(item)
-      last.timestamp = Date.now()
-      localStorage.setItem("snapshot", JSON.stringify(last))
-      window.location.href = window.location.origin
-    })
+var add = function(addrs) {
+  if (addrs.length > 0) {
+    var addr = addrs.shift()
+    var snapshot = localStorage.getItem("snapshot")
+    if (addr && addr.length > 0) {
+      if (snapshot) {
+        var last = JSON.parse(snapshot) 
+        balance(addr).then(function(item) {
+          last.items.push(item)
+          last.timestamp = Date.now()
+          localStorage.setItem("snapshot", JSON.stringify(last))
+          add(addrs)
+        })
+      } else {
+        balance(addr).then(function(item) {
+          localStorage.setItem("snapshot", JSON.stringify({
+            items: [item],
+            timestamp: Date.now()
+          }))
+          add(addrs)
+        })
+      }
+    } else {
+      add(addrs)
+    }
   } else {
-    balance(addr).then(function(item) {
-      localStorage.setItem("snapshot", JSON.stringify({
-        items: [item],
-        timestamp: Date.now()
-      }))
-      window.location.href = window.location.origin
-    })
+    window.location.href = window.location.origin
   }
 }
 if (window.location.hash.length > 1) {
-  // parse command
   var param = window.location.hash.substring(1)
-  add(param)
+  var params = param.split(',')
+  add(params)
 }
 </script>
 </html>
