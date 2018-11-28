@@ -1,4 +1,4 @@
-var connection = datacash.connect('https://cashexplorer.bitcoin.com');
+var connection = datacash.connect('https://bchsvexplorer.com');
 var balance = function(addr) {
   var legacyAddr = bchaddr.toLegacyAddress(addr)
   var cashAddr = bchaddr.toCashAddress(addr)
