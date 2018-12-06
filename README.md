@@ -10,15 +10,7 @@ Read.Cash lets you manage multiple wallets from various applications (such as [m
 
 1. **Add**: **Add wallets by public address** instead of going through hassle of importing private keys.
 2. **Watch**: Watch all your app wallets in a single place.
-3. **Manage**: Effortlessly recharge all your application wallets using QR code and [Moneybutton](https://moneybutton.com)
-
-![sending](./demo.gif)
-
-In above example, I have 3 wallets added to my read.cash. One of them is a [yours.org](https://yours.org) wallet which is also connected to [Moneybutton](https://moneybutton.com).
-
-Then I recharge my [memo.cash](https://memo.cash) account with just a single click using Moneybutton! (I could also recharge using the QR code)
-
-Then I refresh the page, you can see that coins have moved instantly, resulting in the moneybutton account with decreased balance and memo.cash account with increased balance, and you can manage all of this in a single interface.
+3. **Manage**: Effortlessly recharge all your application wallets using QR code
 
 ## Why
 
@@ -40,7 +32,7 @@ Here are some highlights that make read.cash uniquely useful.
 3. **Zero Risk**: Read.cash doesn't import any private keys because all you add is public address. There is zero risk of losing money from read.cash, so add as many as you want.
 4. **Monitor anything**: Since it works by adding public addresses, you can monitor any Bitcoin wallet--even those you don't own.
 5. **100% Serverless**: The entire app is purely frontend based HTML. There is no backend that stores your data. In fact, you can even run it on your own local machine if you want. The source code is 100% open source and designed to be as transparent as possible.
-6. **Charge your wallets effortlessly**: Read.cash implements a couple of powerful ways to charge your wallets, including QR Code and [Moneybutton](https://moneybutton.com), and more to be added. You no longer need to charge wallets from each app, you can do it all in one place.
+6. **Charge your wallets effortlessly**: Read.cash implements a couple of powerful ways to charge your wallets, including QR Code. You no longer need to charge wallets from each app, you can do it all in one place.
 7. **Multi-currency**: You can use read.cash with whichever currency you choose.
 
 ## How to Use
@@ -64,7 +56,6 @@ If you have acccounts in any of the above services, try making a transaction (su
 There are two ways to charge your wallets.
 
 1. **QR Code**: If you already have a mobile phone wallet, you can scan the QR code to charge your wallets.
-2. **Moneybutton**: If you have a [yours.org](https://yours.org) or [moneybutton](https://moneybutton.com) account, you can charge your wallets with an instant click. It's almost magical.
 
 ### 4. Request Payment
 
@@ -73,8 +64,6 @@ When requesting a payment, you can simply pick one of the wallets and share its 
 ```
 https://read.cash/share#[WALLET_ADDRESS]
 ```
-
-Since read.cash incorporates various ways of payment such as QR Code and Moneybutton (and more to come), you can make it as easy as possible for the sender by letting them pick the payment method.
 
 ### 5. Programmatically Add Wallets to read.cash
 
