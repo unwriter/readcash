@@ -24,6 +24,7 @@ var add = function(addr) {
   }
 }
 document.addEventListener("DOMContentLoaded", function(e) {
+  var host = "https://bchsvexplorer.com"
   var tablesource   = document.getElementById("table-template").innerHTML;
   var tabletemplate = Handlebars.compile(tablesource);
   var fundsource   = document.getElementById("fund-template").innerHTML;
@@ -88,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         var infoItem = walletItem.querySelector(".info");
         var addr = walletItem.dataset.addr;
         var res = fundtemplate({
+          host: host,
           addr: addr,
           cashAddr: bchaddr.toCashAddress(addr),
           legacyAddr: bchaddr.toLegacyAddress(addr),
@@ -113,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
           return acc + item.val
         }, 0)
         var res = tabletemplate({
+          host: host,
           converted: convert(total, r),
           total: comma(total) + " sats (" + (total/100000000) + " BCH)",
           items: results.map(function(result) {
@@ -160,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     })
   } else {
     var res = tabletemplate({
+      host: host,
       converted: convert(0, 1.0),
       total: "0 BCH",
       items: []

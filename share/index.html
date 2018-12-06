@@ -68,19 +68,14 @@
     <div class='info-content'>
       <div class='permalink'><i class='fas fa-link'></i>&nbsp;Add <input type='url' value="https://read.cash/add#{{addr}}"></div>
       <div class='permalink'><i class='fas fa-link'></i>&nbsp;Share <input type='url' value="https://read.cash/share#{{addr}}"></div>
-      <div class='chainfeed'>
-        <a href='https://chainfeed.org/@{{addr}}' target="_blank">
-          <i class='fas fa-external-link-alt'></i>&nbsp;View OP_RETURNs on Chainfeed
-        </a>
-      </div>
       <div>
         <div>cash address:
-          <a class='addr' href='https://explorer.bitcoin.com/bch/address/{{addr}}' target="_blank">
+          <a class='addr' href='{{host}}/address/bitcoincash:{{addr}}' target="_blank">
             {{cashAddr}}
           </a>
         </div>
         <div>legacy address: 
-          <a class='addr' href='https://explorer.bitcoin.com/bch/address/{{addr}}' target="_blank">
+          <a class='addr' href='{{host}}/address/bitcoincash:{{addr}}' target="_blank">
             {{legacyAddr}}
           </a>
         </div>

@@ -89,32 +89,19 @@
     <div class='info-content'>
       <div class='permalink'><i class='fas fa-link'></i>&nbsp;Add <input type='url' value="https://read.cash/add#{{addr}}"></div>
       <div class='permalink'><i class='fas fa-link'></i>&nbsp;Share <input type='url' value="https://read.cash/share#{{addr}}"></div>
-      <div class='chainfeed'>
-        <a href='https://chainfeed.org/@{{addr}}' target="_blank">
-          <i class='fas fa-external-link-alt'></i>&nbsp;View OP_RETURNs on Chainfeed
-        </a>
-      </div>
       <div>
         <div>cash address:
-          <a class='addr' href='https://explorer.bitcoin.com/bch/address/{{addr}}' target="_blank">
+          <a class='addr' href='{{host}}/address/bitcoincash:{{addr}}' target="_blank">
             {{cashAddr}}
           </a>
         </div>
         <div>legacy address: 
-          <a class='addr' href='https://explorer.bitcoin.com/bch/address/{{addr}}' target="_blank">
+          <a class='addr' href='{{host}}/address/bitcoincash:{{addr}}' target="_blank">
             {{legacyAddr}}
           </a>
         </div>
       </div>
       <div>{{{qr}}}</div>
-      <div class="money-button-iframe-wrapper" style="width:168px;height:48px;overflow-y:visible;position:relative;z-index:1000;">
-        <iframe src="https://www.moneybutton.com/iframe?to={{addr}}&amount=0.5&type=tip&size=md&color=light&unit=usd&hideAmount=false&enableDropdown=true&webhookUrl=&data="
-          width="168px"
-          height="288px"
-          scrolling="no"
-          style="border:none;">
-        </iframe>
-      </div> 
       <div class='text-right button-container'>
         <button class='remove btn btn-danger'>Remove</button>
       </div>
