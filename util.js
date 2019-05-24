@@ -25,7 +25,7 @@ var rate = function(currency) {
   .then(function(res) {
     return res.json()
   }).then(function(res) {
-    return res.data.value;
+    return res.value;
   })
 }
 var convert = function(balance, rate) {
