@@ -21,7 +21,7 @@ var balance = function(addr) {
   })
 }
 var rate = function(currency) {
-  return fetch("http://bitcoinsv-rates.com/api/rates/"+currency)
+  return fetch("https://bitcoinsv-rates.com/api/rates/"+currency)
   .then(function(res) {
     return res.json()
   }).then(function(res) {
