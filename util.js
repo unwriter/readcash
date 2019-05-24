@@ -1,4 +1,4 @@
-var connection = datacash.connect('https://bchsvexplorer.com');
+var connection = datacash.connect('https://api.bitindex.network');
 var balance = function(addr) {
   var legacyAddr = bchaddr.toLegacyAddress(addr)
   var cashAddr = bchaddr.toCashAddress(addr)
@@ -21,11 +21,11 @@ var balance = function(addr) {
   })
 }
 var rate = function(currency) {
-  return fetch("https://api.coinmarketcap.com/v2/ticker/1831/?convert="+currency)
+  return fetch("http://bitcoinsv-rates.com/api/rates/"+currency)
   .then(function(res) {
     return res.json()
   }).then(function(res) {
-    return res.data.quotes[currency].price;
+    return res.data.value;
   })
 }
 var convert = function(balance, rate) {

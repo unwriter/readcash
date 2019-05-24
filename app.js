@@ -6,7 +6,7 @@ var current_currency = currency_display(global_locale)
 var add = function(addr) {
   var snapshot = localStorage.getItem("snapshot")
   if (snapshot) {
-    var last = JSON.parse(snapshot) 
+    var last = JSON.parse(snapshot)
     balance(addr).then(function(item) {
       last.items.push(item)
       last.timestamp = Date.now()
@@ -24,7 +24,7 @@ var add = function(addr) {
   }
 }
 document.addEventListener("DOMContentLoaded", function(e) {
-  var host = "https://bchsvexplorer.com"
+  var host = "https://api.bitindex.network"
   var tablesource   = document.getElementById("table-template").innerHTML;
   var tabletemplate = Handlebars.compile(tablesource);
   var fundsource   = document.getElementById("fund-template").innerHTML;
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   document.querySelector("#settings").innerHTML = "<i class='fas fa-angle-down'></i> " + current_currency;
   document.addEventListener("click", function(e) {
     if (isClickable(e.target.closest("#api"))) {
-      document.querySelector(".api").classList.remove("hidden") 
+      document.querySelector(".api").classList.remove("hidden")
       e.preventDefault();
       e.stopPropagation();
     } else if (isClickable(e.target.closest("#settings"))) {
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
       document.querySelector(".settings").classList.remove("hidden");
       e.preventDefault();
       e.stopPropagation();
-    } else if (isClickable(e.target.closest(".select-currency"))) { 
+    } else if (isClickable(e.target.closest(".select-currency"))) {
       var selected = e.target.closest(".select-currency");
       var locale = selected.dataset.locale;
       localStorage.setItem("locale", locale)
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
       var remove_addr = bchaddr.toCashAddress(walletItem.dataset.addr);
       var snapshot = localStorage.getItem("snapshot")
       if (snapshot) {
-        var last = JSON.parse(snapshot) 
+        var last = JSON.parse(snapshot)
         for(var i=0; i<last.items.length; i++) {
           if (last.items[i].addr === remove_addr) {
             last.items.splice(i, 1)
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     }
   })
   if (snapshot) {
-    var last = JSON.parse(snapshot) 
+    var last = JSON.parse(snapshot)
     rate(global_currency).then(function(r) {
       Promise.all(last.items.map(function(item) {
         return balance(item.addr)
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             var type = "";
             for(var i=0; i<last.items.length; i++) {
               if (last.items[i].addr === result.addr) {
-                delta = result.val - last.items[i].val; 
+                delta = result.val - last.items[i].val;
                 if (delta > 0) {
                   converted_delta = convert(delta, r);
                   delta = "<i class='fas fa-arrow-up'></i> " + delta;
