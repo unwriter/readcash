@@ -1,4 +1,4 @@
-var connection = datacash.connect('https://bchsvexplorer.com');
+var connection = datacash.connect('https://api.bitindex.network');
 var balance = function(addr) {
   var legacyAddr = bchaddr.toLegacyAddress(addr)
   var cashAddr = bchaddr.toCashAddress(addr)
