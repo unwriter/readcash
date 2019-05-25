@@ -29,7 +29,6 @@
   <script src="./vendor/jsondiffpatch.umd.min.js"></script>
   <script src="./vendor/datacash.min.js"></script>
   <script src="./vendor/handlebars.min.js"></script>
-  <script src="./vendor/bchaddrjs-0.2.1.min.js"></script>
   <script src='./vendor/qrcode.min.js'></script>
 
   <!-- app logic -->
@@ -46,7 +45,7 @@
         <div>{{total}}</div>
       </header>
       <div class="input-group mb-3 add">
-        <input type="text" class="form-control address-input" placeholder="Enter BCH address to monitor">
+        <input type="text" class="form-control address-input" placeholder="Enter BSV address to monitor">
         <div class="input-group-append">
           <button id='add' class="btn btn-success" type="button">Add</button>
         </div>
@@ -64,7 +63,7 @@
         <div class='text-right'>
           <div>Example</div>
 
-          <a href="./add#qq4kp3w3yhhvy4gm4jgeza4vus8vpxgrwc90n8rhxe">https://read.cash/add#qq4kp3w3yhhvy4gm4jgeza4vus8vpxgrwc90n8rhxe</a>
+          <a href="./add#1abc123NotRealAddyDontSendMeNuthin">https://read.cash/add#1abc123NotRealAddyDontSendMeNuthin</a>
         </div>
       </div>
       <div class='wallets'>
@@ -90,14 +89,9 @@
       <div class='permalink'><i class='fas fa-link'></i>&nbsp;Add <input type='url' value="https://read.cash/add#{{addr}}"></div>
       <div class='permalink'><i class='fas fa-link'></i>&nbsp;Share <input type='url' value="https://read.cash/share#{{addr}}"></div>
       <div>
-        <div>cash address:
-          <a class='addr' href='{{host}}/address/bitcoincash:{{addr}}' target="_blank">
-            {{cashAddr}}
-          </a>
-        </div>
-        <div>legacy address: 
-          <a class='addr' href='{{host}}/address/bitcoincash:{{addr}}' target="_blank">
-            {{legacyAddr}}
+        <div>address:
+          <a class='addr' href='{{host}}/address/{{addr}}' target="_blank">
+            {{addr}}
           </a>
         </div>
       </div>
@@ -131,7 +125,7 @@
     </header>
   </div>
   <div class='balance'>
-    <div class="lds-ripple"><div></div><div></div></div> 
+    <div class="lds-ripple"><div></div><div></div></div>
   </div>
   <hr>
   <div class='footer'>

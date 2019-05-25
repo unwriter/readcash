@@ -8,9 +8,7 @@ var select = function(walletItem, template) {
   var addr = walletItem.dataset.addr;
   var res = template({
     addr: addr,
-    cashAddr: bchaddr.toCashAddress(addr),
-    legacyAddr: bchaddr.toLegacyAddress(addr),
-    qr: qr(bchaddr.toCashAddress(addr))
+    qr: qr(addr)
   })
   infoItem.innerHTML = res;
 }
@@ -25,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   document.querySelector("#settings").innerHTML = "<i class='fas fa-angle-down'></i> " + current_currency;
   document.addEventListener("click", function(e) {
     if (isClickable(e.target.closest("#api"))) {
-      document.querySelector(".api").classList.remove("hidden") 
+      document.querySelector(".api").classList.remove("hidden")
       e.preventDefault();
       e.stopPropagation();
     } else if (isClickable(e.target.closest("#settings"))) {
@@ -36,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
       document.querySelector(".settings").classList.remove("hidden");
       e.preventDefault();
       e.stopPropagation();
-    } else if (isClickable(e.target.closest(".select-currency"))) { 
+    } else if (isClickable(e.target.closest(".select-currency"))) {
       var selected = e.target.closest(".select-currency");
       var locale = selected.dataset.locale;
       localStorage.setItem("locale", locale)
@@ -76,10 +74,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
           }, 0)
           var res = tabletemplate({
             converted: convert(total, r),
-            total: comma(total) + " sats (" + (total/100000000) + " BCH)",
+            total: comma(total) + " sats (" + (total/100000000) + " BSV)",
             items: results.map(function(result) {
               return {
-                addr: bchaddr.toCashAddress(result.addr).split(":")[1],
+                addr: result.addr,
                 val: comma(result.val),
                 converted: convert(result.val, r)
               }

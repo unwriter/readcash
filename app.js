@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
       e.stopPropagation();
     } else if (isClickable(e.target.closest(".remove"))) {
       var walletItem = e.target.closest(".wallet-item");
-      var remove_addr = bchaddr.toCashAddress(walletItem.dataset.addr);
+      var remove_addr = walletItem.dataset.addr;
       var snapshot = localStorage.getItem("snapshot")
       if (snapshot) {
         var last = JSON.parse(snapshot)
@@ -91,9 +91,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         var res = fundtemplate({
           host: host,
           addr: addr,
-          cashAddr: bchaddr.toCashAddress(addr),
-          legacyAddr: bchaddr.toLegacyAddress(addr),
-          qr: qr(bchaddr.toCashAddress(addr))
+          qr: qr(addr)
         })
         infoItem.innerHTML = res;
       }
@@ -117,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         var res = tabletemplate({
           host: host,
           converted: convert(total, r),
-          total: comma(total) + " sats (" + (total/100000000) + " BCH)",
+          total: comma(total) + " sats (" + (total/100000000) + " BSV)",
           items: results.map(function(result) {
             // find the row by address from the last snapshot
             // get the val and subtract from current
@@ -142,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
               }
             }
             return {
-              addr: bchaddr.toCashAddress(result.addr).split(":")[1],
+              addr: result.addr,
               val: comma(result.val),
               type: type,
               delta: (delta === 0 ? "" : delta ),
@@ -165,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var res = tabletemplate({
       host: host,
       converted: convert(0, 1.0),
-      total: "0 BCH",
+      total: "0 BSV",
       items: []
     })
     document.body.querySelector(".balance").innerHTML = res;

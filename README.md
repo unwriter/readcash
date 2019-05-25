@@ -76,7 +76,7 @@ https://read.cash/add#[WALLET_ADDRESS]
 Here's what it looks like in practice (If you integrated into your website):
 
 ```
-<a href='https://read.cash/add#qq4kp3w3yhhvy4gm4jgeza4vus8vpxgrwc90n8rhxe'>Add to read.cash</a>
+<a href='https://read.cash/add#1abc123NotRealAddyDontSendMeNuthin'>Add to read.cash</a>
 ```
 
 Remember, there is no server. The entire web app is just a static HTML website hosted on Github. So feel free to integrate read.cash into your apps as much as you want.
@@ -86,7 +86,7 @@ Remember, there is no server. The entire web app is just a static HTML website h
 If you want to add multiple wallets with one request, you can do the same, but this time separate the multiple wallet addresses by commas. Here's an example:
 
 ```
-https://read.cash/add#qppsyzk4wzaqp4g5s4n86t7889m4ydm37gms9ya3p5,qpne29ue8chsv9pxv653zxdhjn45umm4esyds75nx6,qq4kp3w3yhhvy4gm4jgeza4vus8vpxgrwc90n8rhxe
+https://read.cash/add#1abc123NotRealAddyDontSendMeNuthin,1YesYesYallAndItDontStopPssshNotRealAddy,1JustAnotherFakeAddressForExamplePurposes
 ```
 
 ## Contribute
