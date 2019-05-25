@@ -171,4 +171,16 @@ document.addEventListener("DOMContentLoaded", function(e) {
     })
     document.body.querySelector(".balance").innerHTML = res;
   }
+
+  var addrs = JSON.parse(localStorage.getItem("snapshot"))["items"]
+  var amount = (10.0 / addrs.length).toPrecision(3)
+  var outputs = addrs.map(function(i) {
+    return { address: i.addr, amount: amount.toString(), currency: "USD" }
+  })
+
+  moneyButton.render(document.getElementById('money-button-top-up'), {
+    outputs: outputs,
+    label: "Top Up",
+    onError: function(arg) { console.log('onError', arg) }
+  })
 })
