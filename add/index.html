@@ -1,6 +1,5 @@
 <html>
 <script src="../vendor/datacash.min.js"></script>
-<script src="../vendor/bchaddrjs-0.2.1.min.js"></script>
 <script src="../util.js"></script>
 <script>
 // ADD API
@@ -10,7 +9,7 @@ var add = function(addrs) {
     var snapshot = localStorage.getItem("snapshot")
     if (addr && addr.length > 0) {
       if (snapshot) {
-        var last = JSON.parse(snapshot) 
+        var last = JSON.parse(snapshot)
         balance(addr).then(function(item) {
           last.items.push(item)
           last.timestamp = Date.now()

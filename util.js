@@ -1,9 +1,7 @@
 var connection = datacash.connect('https://api.bitindex.network');
 var balance = function(addr) {
-  var legacyAddr = bchaddr.toLegacyAddress(addr)
-  var cashAddr = bchaddr.toCashAddress(addr)
   return new Promise(function(resolve, reject) {
-    connection.getUnspentUtxos(legacyAddr, function(err, utxos) {
+    connection.getUnspentUtxos(addr, function(err, utxos) {
       if (err) {
         console.log("Error: ", err)
       } else {
@@ -14,7 +12,7 @@ var balance = function(addr) {
         }, 0)
         resolve({
           val: sats,
-          addr: cashAddr
+          addr: addr
         })
       }
     });
@@ -25,7 +23,7 @@ var rate = function(currency) {
   .then(function(res) {
     return res.json()
   }).then(function(res) {
-    return res.data.value;
+    return res.value;
   })
 }
 var convert = function(balance, rate) {
