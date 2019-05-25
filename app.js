@@ -3,18 +3,20 @@ global_locale = (global_locale ? global_locale : "US");
 var global_currency = getCurrency(global_locale)
 var current_currency = currency_display(global_locale)
 // ADD API
-var add = function(addr) {
+var add = function(addr, label) {
   var snapshot = localStorage.getItem("snapshot")
   if (snapshot) {
     var last = JSON.parse(snapshot)
-    balance(addr).then(function(item) {
+    balance(addr, label).then(function(item) {
+      item.label = label
       last.items.push(item)
       last.timestamp = Date.now()
       localStorage.setItem("snapshot", JSON.stringify(last))
       window.location.href = window.location.href.split("#")[0]
     })
   } else {
-    balance(addr).then(function(item) {
+    balance(addr, label).then(function(item) {
+      item.label = label
       localStorage.setItem("snapshot", JSON.stringify({
         items: [item],
         timestamp: Date.now()
@@ -55,7 +57,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
       window.location.reload()
     } else if (isClickable(e.target.closest("#add"))) {
       var addr = document.querySelector(".address-input").value;
-      add(addr)
+      var label = document.querySelector(".address-label").value;
+      add(addr, label)
       e.preventDefault();
       e.stopPropagation();
     } else if (isClickable(e.target.closest(".remove"))) {
@@ -103,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var last = JSON.parse(snapshot)
     rate(global_currency).then(function(r) {
       Promise.all(last.items.map(function(item) {
-        return balance(item.addr)
+        return balance(item.addr, item.label)
       }))
       .then(function(results) {
         var store = {
@@ -141,6 +144,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             }
             return {
               addr: result.addr,
+              label: result.label,
               val: comma(result.val),
               type: type,
               delta: (delta === 0 ? "" : delta ),
@@ -156,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
           localStorage.setItem("snapshot", JSON.stringify(last))
         }
         document.body.querySelector(".balance").innerHTML = res;
-
       })
     })
   } else {

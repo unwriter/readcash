@@ -1,5 +1,5 @@
 var connection = datacash.connect('https://api.bitindex.network');
-var balance = function(addr) {
+var balance = function(addr, label) {
   return new Promise(function(resolve, reject) {
     connection.getUnspentUtxos(addr, function(err, utxos) {
       if (err) {
@@ -12,7 +12,8 @@ var balance = function(addr) {
         }, 0)
         resolve({
           val: sats,
-          addr: addr
+          addr: addr,
+          label: label
         })
       }
     });

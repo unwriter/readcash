@@ -3,7 +3,7 @@
 <script src="../util.js"></script>
 <script>
 // ADD API
-var add = function(addrs) {
+var add = function(addrs, label) {
   if (addrs.length > 0) {
     var addr = addrs.shift()
     var snapshot = localStorage.getItem("snapshot")
@@ -11,22 +11,24 @@ var add = function(addrs) {
       if (snapshot) {
         var last = JSON.parse(snapshot)
         balance(addr).then(function(item) {
+          item.label = label
           last.items.push(item)
           last.timestamp = Date.now()
           localStorage.setItem("snapshot", JSON.stringify(last))
-          add(addrs)
+          add(addrs, label)
         })
       } else {
         balance(addr).then(function(item) {
+          item.label = label
           localStorage.setItem("snapshot", JSON.stringify({
             items: [item],
             timestamp: Date.now()
           }))
-          add(addrs)
+          add(addrs, label)
         })
       }
     } else {
-      add(addrs)
+      add(addrs, label)
     }
   } else {
     window.location.href = window.location.origin
