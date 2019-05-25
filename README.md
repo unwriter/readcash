@@ -6,7 +6,7 @@ Manage multiple wallets from various Bitcoin applications, in one place, with ze
 
 ## What
 
-Read.Cash lets you manage multiple wallets from various applications (such as [memo.cash](https://memo.cash), [yours.org](https://yours.org), [blockpress](https://www.blockpress.com), etc.) in a single place.
+Read.Cash lets you manage multiple wallets from various applications (such as [memo.sv](https://memo.sv), [yours.org](https://yours.org), [moneybutton](https://www.moneybutton.com), etc.) in a single place.
 
 1. **Add**: **Add wallets by public address** instead of going through hassle of importing private keys.
 2. **Watch**: Watch all your app wallets in a single place.
@@ -14,7 +14,7 @@ Read.Cash lets you manage multiple wallets from various applications (such as [m
 
 ## Why
 
-We are on the verge of a cambrian explosion of "Bitcoin Apps". We already have several interesting apps running on top of Bitcoin Cash such as [memo.cash](https://memo.cash), [blockpress](https://www.blockpress.com), [yours.org](https://yours.org), [keyport](https://keyport.cash), etc. and there are tons more to come.
+We are on the verge of a cambrian explosion of "Bitcoin Apps". We already have several interesting apps running on top of Bitcoin such as [memo.sv](https://memo.sv), [moneybutton](https://www.moneybutton.com), [yours.org](https://yours.org), [streamanity](https://streamanity.com), etc. and there are tons more to come.
 
 One notable thing about these apps is that **each app comes with its own embedded wallet**. This is great for user experience and also helps with reducing risk for users since each wallet is specific to its parent application.
 
@@ -28,7 +28,7 @@ However it's becoming hard to keep track of all the wallets across different app
 Here are some highlights that make read.cash uniquely useful.
 
 1. **Simple and Readonly**: It's for "Reading" from wallets. There's no private key management, no seed phrase, no complex stuff. Just add some public Bitcoin addresses from all your Bitcoin apps and you're set to go.
-2. **Monitor changes**: Whenever you refresh the page, read.cash lets you know if there has been a new spend or a new incoming transaction making it easy for you to keep scores. 
+2. **Monitor changes**: Whenever you refresh the page, read.cash lets you know if there has been a new spend or a new incoming transaction making it easy for you to keep scores.
 3. **Zero Risk**: Read.cash doesn't import any private keys because all you add is public address. There is zero risk of losing money from read.cash, so add as many as you want.
 4. **Monitor anything**: Since it works by adding public addresses, you can monitor any Bitcoin wallet--even those you don't own.
 5. **100% Serverless**: The entire app is purely frontend based HTML. There is no backend that stores your data. In fact, you can even run it on your own local machine if you want. The source code is 100% open source and designed to be as transparent as possible.
@@ -41,13 +41,13 @@ Here are some highlights that make read.cash uniquely useful.
 
 Try the app at [https://read.cash](https://read.cash). Some of the things you can try are:
 
-1. Add your [memo.cash](https://memo.cash) wallet
-2. Add your [blockpress](https://www.blockpress.com) wallet
-3. Add your [yours.org](https://yours.org) wallet
+1. Add your [memo.sv](https://memo.sv) wallet
+2. Add your [yours.org](https://yours.org) wallet
+3. Add your [moneybutton.com](https://www.moneybutton.com) wallet
 
 As you start adding wallets, you'll see that the header displays the total sum of all the coins in your wallets.
 
-### 2. Watch 
+### 2. Watch
 
 If you have acccounts in any of the above services, try making a transaction (such as posting a memo), and come back to read.cash and refresh, you'll see that your balance has gone down. Likewise, you'll see a green arrow when there's an incoming transaction (like a tip).
 
