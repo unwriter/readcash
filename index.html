@@ -1,13 +1,7 @@
 <html>
+<meta charset="utf-8">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118872995-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-118872995-2');
-  </script>
   <title>readcash</title>
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
@@ -26,10 +20,10 @@
   <!-- vendor -->
   <link href="./vendor/bootstrap.css" rel="stylesheet">
   <link href="./vendor/fontawesome-all.min.css" rel="stylesheet">
+  <script src="https://www.moneybutton.com/moneybutton.js"></script>
   <script src="./vendor/jsondiffpatch.umd.min.js"></script>
   <script src="./vendor/datacash.min.js"></script>
   <script src="./vendor/handlebars.min.js"></script>
-  <script src="./vendor/bchaddrjs-0.2.1.min.js"></script>
   <script src='./vendor/qrcode.min.js'></script>
 
   <!-- app logic -->
@@ -46,7 +40,8 @@
         <div>{{total}}</div>
       </header>
       <div class="input-group mb-3 add">
-        <input type="text" class="form-control address-input" placeholder="Enter BCH address to monitor">
+        <input type="text" class="form-control address-label" placeholder="Label">
+        <input type="text" class="form-control address-input" placeholder="Enter BSV address to monitor">
         <div class="input-group-append">
           <button id='add' class="btn btn-success" type="button">Add</button>
         </div>
@@ -64,19 +59,20 @@
         <div class='text-right'>
           <div>Example</div>
 
-          <a href="./add#qq4kp3w3yhhvy4gm4jgeza4vus8vpxgrwc90n8rhxe">https://read.cash/add#qq4kp3w3yhhvy4gm4jgeza4vus8vpxgrwc90n8rhxe</a>
+          <a href="./add#1abc123NotRealAddyDontSendMeNuthin">https://read.cash/add#1abc123NotRealAddyDontSendMeNuthin</a>
         </div>
       </div>
       <div class='wallets'>
         {{#each items}}
         <div class='wallet-item' data-addr="{{addr}}" href="#">
           <a class='row wallet-link' href='#'>
-            <div class='col-4 text-left'>
+            <div class='col-6 text-left'>
+              <span class="label">{{label}}</span>
               <img src="https://robohash.org/{{addr}}.png?set=set4&size=60x60" class='avatar'>
               {{addr}}
             </div>
             <div class='col-4 text-right {{type}}'>{{val}} sats<br>{{{delta}}}</div>
-            <div class='col-4 text-right'>{{converted}}<br>{{{converted_delta}}}</div>
+            <div class='col-2 text-right'>{{converted}}<br>{{{converted_delta}}}</div>
           </a>
           <div class='info'>
           </div>
@@ -90,14 +86,9 @@
       <div class='permalink'><i class='fas fa-link'></i>&nbsp;Add <input type='url' value="https://read.cash/add#{{addr}}"></div>
       <div class='permalink'><i class='fas fa-link'></i>&nbsp;Share <input type='url' value="https://read.cash/share#{{addr}}"></div>
       <div>
-        <div>cash address:
-          <a class='addr' href='{{host}}/address/bitcoincash:{{addr}}' target="_blank">
-            {{cashAddr}}
-          </a>
-        </div>
-        <div>legacy address: 
-          <a class='addr' href='{{host}}/address/bitcoincash:{{addr}}' target="_blank">
-            {{legacyAddr}}
+        <div>address:
+          <a class='addr' href='{{host}}/address/{{addr}}' target="_blank">
+            {{addr}}
           </a>
         </div>
       </div>
@@ -122,6 +113,7 @@
       <span>
         <a href='#' id='settings'></a>
       </span>
+      <div id='money-button-top-up'></div>
     </nav>
   </div>
   <div class='settings text-left hidden'>
@@ -131,7 +123,7 @@
     </header>
   </div>
   <div class='balance'>
-    <div class="lds-ripple"><div></div><div></div></div> 
+    <div class="lds-ripple"><div></div><div></div></div>
   </div>
   <hr>
   <div class='footer'>

@@ -3,18 +3,20 @@ global_locale = (global_locale ? global_locale : "US");
 var global_currency = getCurrency(global_locale)
 var current_currency = currency_display(global_locale)
 // ADD API
-var add = function(addr) {
+var add = function(addr, label) {
   var snapshot = localStorage.getItem("snapshot")
   if (snapshot) {
     var last = JSON.parse(snapshot)
-    balance(addr).then(function(item) {
+    balance(addr, label).then(function(item) {
+      item.label = label
       last.items.push(item)
       last.timestamp = Date.now()
       localStorage.setItem("snapshot", JSON.stringify(last))
       window.location.href = window.location.href.split("#")[0]
     })
   } else {
-    balance(addr).then(function(item) {
+    balance(addr, label).then(function(item) {
+      item.label = label
       localStorage.setItem("snapshot", JSON.stringify({
         items: [item],
         timestamp: Date.now()
@@ -55,12 +57,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
       window.location.reload()
     } else if (isClickable(e.target.closest("#add"))) {
       var addr = document.querySelector(".address-input").value;
-      add(addr)
+      var label = document.querySelector(".address-label").value;
+      add(addr, label)
       e.preventDefault();
       e.stopPropagation();
     } else if (isClickable(e.target.closest(".remove"))) {
       var walletItem = e.target.closest(".wallet-item");
-      var remove_addr = bchaddr.toCashAddress(walletItem.dataset.addr);
+      var remove_addr = walletItem.dataset.addr;
       var snapshot = localStorage.getItem("snapshot")
       if (snapshot) {
         var last = JSON.parse(snapshot)
@@ -91,9 +94,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         var res = fundtemplate({
           host: host,
           addr: addr,
-          cashAddr: bchaddr.toCashAddress(addr),
-          legacyAddr: bchaddr.toLegacyAddress(addr),
-          qr: qr(bchaddr.toCashAddress(addr))
+          qr: qr(addr)
         })
         infoItem.innerHTML = res;
       }
@@ -105,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var last = JSON.parse(snapshot)
     rate(global_currency).then(function(r) {
       Promise.all(last.items.map(function(item) {
-        return balance(item.addr)
+        return balance(item.addr, item.label)
       }))
       .then(function(results) {
         var store = {
@@ -117,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         var res = tabletemplate({
           host: host,
           converted: convert(total, r),
-          total: comma(total) + " sats (" + (total/100000000) + " BCH)",
+          total: comma(total) + " sats (" + (total/100000000) + " BSV)",
           items: results.map(function(result) {
             // find the row by address from the last snapshot
             // get the val and subtract from current
@@ -142,7 +143,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
               }
             }
             return {
-              addr: bchaddr.toCashAddress(result.addr).split(":")[1],
+              addr: result.addr,
+              label: result.label,
               val: comma(result.val),
               type: type,
               delta: (delta === 0 ? "" : delta ),
@@ -158,16 +160,27 @@ document.addEventListener("DOMContentLoaded", function(e) {
           localStorage.setItem("snapshot", JSON.stringify(last))
         }
         document.body.querySelector(".balance").innerHTML = res;
-
       })
     })
   } else {
     var res = tabletemplate({
       host: host,
       converted: convert(0, 1.0),
-      total: "0 BCH",
+      total: "0 BSV",
       items: []
     })
     document.body.querySelector(".balance").innerHTML = res;
   }
+
+  var addrs = JSON.parse(localStorage.getItem("snapshot"))["items"]
+  var amount = (10.0 / addrs.length).toPrecision(3)
+  var outputs = addrs.map(function(i) {
+    return { address: i.addr, amount: amount.toString(), currency: "USD" }
+  })
+
+  moneyButton.render(document.getElementById('money-button-top-up'), {
+    outputs: outputs,
+    label: "Top Up",
+    onError: function(arg) { console.log('onError', arg) }
+  })
 })
